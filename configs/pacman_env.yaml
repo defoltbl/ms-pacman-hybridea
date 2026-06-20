@@ -1,0 +1,79 @@
+# ==========================================
+# Environment Settings (Ms. Pac-Man)
+# ==========================================
+environment:
+  name: "MsPacman-v0"
+  render_mode: "human"         # "human" for window, "rgb_array" for training (faster)
+  level: "easy"                # "easy" / "medium" / "hard" from level_config.py
+  frameskip: 4                 # Standard for Atari
+  gray_scale: False            # Using color for object recognition
+  stack_frames: 4              # 4 frames allow the network to see the direction of movement
+  resize_shape: [128, 128]     # Square size is processed faster on GPU (MPS)
+
+# ==========================================
+# Algorithm Hyperparameters
+# ==========================================
+algorithms:
+
+  dqn:
+    learning_rate: 0.0001
+    gamma: 0.99
+    buffer_size: 50000
+    batch_size: 64
+    exploration_initial_eps: 1.0
+    exploration_final_eps: 0.05   # lower floor = more exploitation late-game
+    epsilon_decay: 0.995          # per episode — reaches min by ~episode 100
+    target_update_interval: 1000
+    train_freq: 4
+    noisy: False
+
+  mc:
+    learning_rate: 0.0001
+    gamma: 0.99
+    batch_size: 64
+
+  a2c:
+    learning_rate: 0.00025
+    gamma: 0.99
+    value_loss_coef: 0.5
+    entropy_coef: 0.01         
+  
+
+  ppo:
+    learning_rate: 0.00025
+    gamma: 0.99
+    batch_size: 128
+    clip_eps: 0.2
+    lam: 0.95
+    ppo_epochs: 4
+
+  bc:
+    learning_rate: 0.001        
+    batch_size: 64              
+    expert_dataset_path: "data/expert_dataset.pkl"
+
+  hybrid_bc_ppo:
+    bc_learning_rate: 0.0005    
+    ppo_learning_rate: 0.0001   
+    batch_size: 128             
+    ppo_epochs: 10              
+    clip_eps: 0.1               
+    entropy_coef: 0.02          
+    lam: 0.95                   
+    expert_dataset_path: "data/expert_dataset.pkl"
+    use_heuristics: true
+
+# ==========================================
+# General Training Settings
+# ==========================================
+training:
+  episodes: 300
+  eval_episodes: 500
+  device: "mps"                 # Metal Performance Shaders (Apple Silicon)
+  use_heuristics: true
+
+# ==========================================
+# Logging
+# ==========================================
+logging:
+  log_interval: 1               # Console report every episode

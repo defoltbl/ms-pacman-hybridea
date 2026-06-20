@@ -1,0 +1,40 @@
+# Monte Carlo
+python3 src/main.py --config configs/pacman_env.yaml --algorithm MC --mode train
+
+# DQN
+python3 src/main.py --config configs/pacman_env.yaml --algorithm DQN --mode train
+
+# A2C
+python3 src/main.py --config configs/pacman_env.yaml --algorithm A2C --mode train
+
+# PPO
+python3 src/main.py --config configs/pacman_env.yaml --algorithm PPO --mode train
+
+# Behavioral Cloning (BC)
+python3 src/main.py --config configs/pacman_env.yaml --algorithm BC --mode train
+
+# Hybrid (BC + PPO)
+python3 src/main.py --config configs/pacman_env.yaml --algorithm HYBRID_BC_PPO --mode train
+
+# Monte Carlo testing
+python3 src/main.py --config configs/pacman_env.yaml --algorithm MC --mode eval
+
+# DQN testing
+python3 src/main.py --config configs/pacman_env.yaml --algorithm DQN --mode eval
+
+# A2C testing
+python3 src/main.py --config configs/pacman_env.yaml --algorithm A2C --mode eval
+
+# PPO testing
+python3 src/main.py --config configs/pacman_env.yaml --algorithm PPO --mode eval
+
+# Behavioral Cloning testing
+python3 src/main.py --config configs/pacman_env.yaml --algorithm BC --mode eval
+
+# Hybrid (BC + PPO) testing
+python3 src/main.py --config configs/pacman_env.yaml --algorithm HYBRID_BC_PPO --mode eval
+
+# Video
+python3 src/video.py --model models/hybrid_bc_ppo/HYBRID_BC_PPO_20260423-143022.pth
+
+python3 src/make_demo_video.py --episodes 1

@@ -1,0 +1,33 @@
+# Third-party / vendored library — install via pip instead
+/Arcade-Learning-Environment/
+
+# ROM files (copyrighted, also large)
+*.bin
+roms/
+
+# Root-level data folder (large dataset files) — NOT src/data/, which is source code
+/data/expert_dataset.pkl
+/data/*.pkl
+
+# Other large generated/binary artifacts (root-level only)
+/models/
+*.pth
+/demo_videos/
+*.mp4
+*.avi
+*.mov
+/datasets/
+/logs/
+/temp/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Editor/OS
+.vscode/
+.DS_Store
