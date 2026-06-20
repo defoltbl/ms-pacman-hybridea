@@ -162,7 +162,7 @@ Results from this work were presented at two international academic conferences:
 
 ## Thesis Context
 
-This repository implements the practical component of a master's qualification thesis: *"Development and Research of a Methodology for Creating Intelligent Agents for Forming Strategies for Passing Levels in Video Games"* — National University "Odesa Polytechnic", specialty 122 Computer Science.
+This repository implements the practical component of a master's qualification thesis: *"Development and Research of a Methodology for Creating Intelligent Agents for Forming Strategies for Passing Levels in Video Games"* — Odesа Polytechnic National University, specialty 122 Computer Science.
 
 ## Developed by
 
